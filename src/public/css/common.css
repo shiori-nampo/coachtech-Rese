@@ -1,0 +1,10 @@
+.app {
+  height: 100%;
+  max-width:1540px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
