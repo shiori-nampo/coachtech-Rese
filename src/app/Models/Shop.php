@@ -49,4 +49,12 @@ class Shop extends Model
         return $this->hasMany(Evaluation::class);
     }
 
+
+    public function is_favorited_by_auth_user()
+    {
+        $user_id = auth()->id();
+
+        return $this->favorites()->where('user_id', $user_id)->exists();
+    }
+
 }

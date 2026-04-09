@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth/register');
+Route::get('/thanks', function () {
+    return view('auth/thanks');
+})->name('thanks');
+
+Route::get('/menu', function () {
+    return view('auth/menu');
+})->name('menu');
+
+
+Route::get('/', [ShopController::class, 'index'])
+    ->name('shops.index');
+
+
+Route::middleware('auth')->group(function () {
+    Route::post('/favorite/{shop_id}', [ShopController::class, 'favorite'])->name('favorite');
 });
+

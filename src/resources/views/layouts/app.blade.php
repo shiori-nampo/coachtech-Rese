@@ -15,7 +15,12 @@
   <div class="app">
     <header class="header">
       <div class="header-inner">
-        <a class="menu-icon" href="">
+        <a class="menu-link" href="{{ asset('menu') }}">
+          <div class="menu-icon">
+            <span class="line1"></span>
+            <span class="line2"></span>
+            <span class="line3"></span>
+          </div>
           <h1 class="menu-ttl">Rese</h1>
         </a>
       </div>
