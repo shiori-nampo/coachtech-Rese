@@ -27,6 +27,12 @@ Route::get('/', [ShopController::class, 'index'])
     ->name('shops.index');
 
 
+Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('shops.detail');
+
+Route::post('/detail/{shop_id}', [ShopController::class, 'store'])->name('shops.store');
+
+Route::get('/done', [ShopController::class, 'show'])->name('shops.show');
+
 Route::middleware('auth')->group(function () {
     Route::post('/favorite/{shop_id}', [ShopController::class, 'favorite'])->name('favorite');
 });

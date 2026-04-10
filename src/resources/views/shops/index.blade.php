@@ -42,18 +42,18 @@
             <p class="shop-content__genre">#{{ $shop->genre->name }}</p>
           </div>
           <div class="shop-content__link">
-            <a class="shop-content__detail" href="">詳しくみる</a>
-          </div>
-          <div class="shop-content__heart">
-            <form class="shop-heart__form" action="{{ route('favorite', ['$shop->id']) }}" method="post">
-              @csrf
-              <button class="shop-heart__btn" type="submit">
-                @if ($shop->is_favorited_by_auth_user())
-                  <img class="shop-heart__icon" src="{{ asset('images/heart_logo.png') }}" alt="お気に入り解除" />
-                @else
-                  <img src="{{ asset('images/heart_pink.png') }}" alt="お気に入り登録">
-                @endif
-              </button>
+            <a class="shop-content__detail" href="{{ route('shops.detail', ['shop_id' => $shop->id]) }}">詳しくみる</a>
+            <div class="shop-content__heart">
+              <form class="shop-heart__form" action="{{ route('favorite', ['$shop->id']) }}" method="post">
+                @csrf
+                <button class="shop-heart__btn" type="submit">
+                  @if ($shop->is_favorited_by_auth_user())
+                    <img class="shop-heart__icon" src="{{ asset('images/heart_pink.png') }}" alt="お気に入り登録" />
+                  @else
+                    <img class="shop-heart__icon--inactive" src="{{ asset('images/heart_logo.png') }}" alt="お気に入り解除">
+                  @endif
+                </button>
+            </div>
             </form>
           </div>
         </div>
