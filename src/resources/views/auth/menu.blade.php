@@ -13,21 +13,24 @@
 <body>
   <div class="menu-wrapper">
     <div class="menu-button">
-      <a href="">
+      <a href="{{ route('shops.index') }}" class="back-btn">
         <span class="batsu"></span>
       </a>
     </div>
     <div class="menu-wrapper__link">
       @auth
-        <a class="menu-link" href="">Home</a>
-        <a class="menu-link" href="">Logout</a>
-        <a class="menu-link" href="">Mypage</a>
+        <a class="menu-link" href="{{ route('shops.index') }}">Home</a>
+        <form class="logout-btn" action="{{ route('logout') }}" method="post">
+          @csrf
+          <button class="logout-button" type="submit">Logout</button>
+        </form>
+        <a class="menu-link" href="{{ route('mypage.index') }}">Mypage</a>
       @endauth
 
       @guest
-        <a class="menu-link" href="">Home</a>
-        <a class="menu-link" href="">Registration</a>
-        <a class="menu-link" href="">Login</a>
+        <a class="menu-link" href="{{ route('shops.index') }}">Home</a>
+        <a class="menu-link" href="{{ route('register') }}">Registration</a>
+        <a class="menu-link" href="{{ route('login') }}">Login</a>
       @endguest
     </div>
   </div>

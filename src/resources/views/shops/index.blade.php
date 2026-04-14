@@ -44,7 +44,7 @@
           <div class="shop-content__link">
             <a class="shop-content__detail" href="{{ route('shops.detail', ['shop_id' => $shop->id]) }}">詳しくみる</a>
             <div class="shop-content__heart">
-              <form class="shop-heart__form" action="{{ route('favorite', ['$shop->id']) }}" method="post">
+              <form class="shop-heart__form" action="{{ route('favorite', ['shop_id' => $shop->id]) }}" method="post">
                 @csrf
                 <button class="shop-heart__btn" type="submit">
                   @if ($shop->is_favorited_by_auth_user())

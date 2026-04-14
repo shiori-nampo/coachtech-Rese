@@ -30,9 +30,11 @@
             <option value="17:00">17:00</option>
             <option value="18:00">18:00</option>
             <option value="19:00">19:00</option>
-            <span class="select-icon"></span>
           </select>
-          <select class="reservation-number" name="number">
+          <span class="select-icon"></span>
+        </div>
+        <div class="reservation-select">
+          <select class="reservation-number" name="number" id="number-input">
             <option value="" disabled selected>選択してください</option>
             <option value="1">1人</option>
             <option value="2">2人</option>
@@ -40,25 +42,25 @@
             <option value="4">4人</option>
             <option value="5">5人</option>
             <option value="6">6人</option>
-            <span class="select-icon"></span>
           </select>
+          <span class="select-icon"></span>
         </div>
         <div class="reservation-confirm">
           <div class="reservation-group">
             <p class="reservation-title">Shop</p>
-            <p class="reservation-shop">{{ $shop->name }}</p>
+            <p class="reservation-data">{{ $shop->name }}</p>
           </div>
           <div class="reservation-group">
             <p class="reservation-title">Date</p>
-            <p class="reservation-confirm__date" id="confirm-date"></p>
+            <p class="reservation-data confirm__date" id="confirm-date"></p>
           </div>
           <div class="reservation-group">
             <p class="reservation-title">Time</p>
-            <p class="reservation-confirm__time" id="confirm-time"></p>
+            <p class="reservation-data confirm__time" id="confirm-time"></p>
           </div>
           <div class="reservation-group">
             <p class="reservation-title">Number</p>
-            <p class="reservation-confirm__number" id="confirm-number"></p>
+            <p class="reservation-data confirm__number" id="confirm-number"></p>
           </div>
         </div>
         <div class="reservation-button">
@@ -71,7 +73,7 @@
   <script>
     const dateInput = document.getElementById('date-input');
     const timeInput = document.getElementById('time-input');
-    const numberInput = document.getElementById('nubmer-input');
+    const numberInput = document.getElementById('number-input');
 
     const confirmDate = document.getElementById('confirm-date');
     const confirmTime = document.getElementById('confirm-time');
@@ -86,7 +88,7 @@
     });
 
     numberInput.addEventListener('change', () => {
-      confirmNumber.textContent = numberInput.value + 人;
+      confirmNumber.textContent = numberInput.value + '人';
     });
   </script>
 

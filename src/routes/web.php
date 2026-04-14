@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\MypageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,11 +30,23 @@ Route::get('/', [ShopController::class, 'index'])
 
 Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('shops.detail');
 
-Route::post('/detail/{shop_id}', [ShopController::class, 'store'])->name('shops.store');
 
-Route::get('/done', [ShopController::class, 'show'])->name('shops.show');
+
 
 Route::middleware('auth')->group(function () {
     Route::post('/favorite/{shop_id}', [ShopController::class, 'favorite'])->name('favorite');
+
+    Route::post('/detail/{shop_id}', [ShopController::class, 'store'])->name('shops.store');
+
+    Route::get('/done', [ShopController::class, 'done'])->name('shops.done');
+
+    Route::get('/mypage', [MypageController::class, 'index'])->name('mypage.index');
+
+    Route::delete('/mypage/reservation/{reservation_id}', [MypageController::class, 'destroy'])->name('mypage.destroy');
+
+    Route::post('/logout', function () {
+        Auth::logout();
+        return redirect('/login');
+    })->name('logout');
 });
 
