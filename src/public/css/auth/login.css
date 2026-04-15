@@ -19,15 +19,16 @@
   background: blue;
   color: #ddd;
   text-align: left;
-  height: 60px;
-  padding-top: 20px;
-  padding-left: 10px;
+  height: 80px;
+  padding: 0 0 0 15px;
+  align-items: center;
+  display: flex;
   border-radius: 4px 4px 0px 0px;
 }
 
 
 .login-form__group {
-  margin: 20px 20px 18px 20px;
+  margin: 20px 20px 5px 20px;
   border-bottom: 1px solid #ddd;
 }
 
@@ -52,6 +53,15 @@
   font-size: 14px;
   padding: 4px 8px;
   margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-left: 20px;
+  display: inline-block;
+  height: 15px;
+  line-height: 1;
 }
 
 

@@ -25,6 +25,9 @@
         @csrf
         <div class="reservation-select">
           <input class="reservation-date" type="date" name="date" id="date-input">
+          @error('date')
+            <p class="error-message">{{ $message }}</p>
+          @enderror
           <select class="reservation-time" name="time" id="time-input">
             <option value="" disabled selected>選択してください</option>
             <option value="17:00">17:00</option>
@@ -33,6 +36,9 @@
           </select>
           <span class="select-icon"></span>
         </div>
+        @error('time')
+          <p class="error-message">{{ $message }}</p>
+        @enderror
         <div class="reservation-select">
           <select class="reservation-number" name="number" id="number-input">
             <option value="" disabled selected>選択してください</option>
@@ -45,6 +51,9 @@
           </select>
           <span class="select-icon"></span>
         </div>
+        @error('number')
+          <p class="error-message">{{ $message }}</p>
+        @enderror
         <div class="reservation-confirm">
           <div class="reservation-group">
             <p class="reservation-title">Shop</p>

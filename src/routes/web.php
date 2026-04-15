@@ -23,6 +23,10 @@ Route::get('/menu', function () {
     return view('auth/menu');
 })->name('menu');
 
+Route::get('/email/verify', function () {
+    return view('auth.verify');
+})->middleware('auth')->name('verification.notice');
+
 
 Route::get('/', [ShopController::class, 'index'])
     ->name('shops.index');
@@ -33,7 +37,7 @@ Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('shops.
 
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth', 'verified')->group(function () {
     Route::post('/favorite/{shop_id}', [ShopController::class, 'favorite'])->name('favorite');
 
     Route::post('/detail/{shop_id}', [ShopController::class, 'store'])->name('shops.store');

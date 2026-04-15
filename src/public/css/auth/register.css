@@ -18,14 +18,15 @@
   background: blue;
   color: #ddd;
   text-align: left;
-  height: 60px;
-  padding-top: 20px;
-  padding-left: 20px;
+  height: 80px;
+  padding: 0 0 0 15px;
+  align-items: center;
   border-radius: 4px 4px 0px 0px;
+  display: flex;
 }
 
 .register-form__group {
-  margin: 20px 20px 18px 20px;
+  margin: 30px 20px 0px 20px;
   border-bottom: 1px solid #ddd;
 }
 
@@ -48,6 +49,14 @@
   border-radius: 4px;
   margin-right: 10px;
   margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  margin-left: 20px;
+  font-size: 12px;
+  display: inline-block;
+  line-height: 1;
 }
 
 @media (max-width: 768px) {

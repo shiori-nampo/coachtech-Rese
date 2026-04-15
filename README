@@ -1,0 +1,72 @@
+# Rese
+
+## 概要
+
+Rese(リーズ)は飲食店を予約できるアプリです。主な機能は会員登録、ログイン、ユーザー情報取得、お気に入り登録/解除、飲食店一覧、飲食店詳細、ユーザー飲食店予約情報取得、飲食店予約情報の追加/削除、検索（エリア、ジャンル、店名で可能）、リマインダー機能、飲食店の評価、決済機能です。<br>
+管理者はテンポ代表者を作成できる管理画面があり、<br>店舗代表者が店舗の情報の作成、更新と予約情報の確認ができる管理画面があります。
+
+## 環境構築
+
+**Dockerビルド**
+
+1. `git clone git@github.com:shiori-nampo/coachtech-Rese.git`
+2. DockerDesktopアプリを立ち上げる
+3. `docker-compose up -d --build`
+
+> _MacのM1・M2チップのPCの場合、`no matching manifest for linux/arm64/v8 in the manifest list entries`のメッセージが表示されビルドができないことがあります。
+> エラーが発生する場合は、docker-compose.ymlファイルの「mysql」内に「platform」の項目を追加で記載してください_
+
+```bash
+mysql:
+    platform: linux/x86_64
+    image: mysql:8.0.26
+    environment:
+```
+
+**Laravel環境構築**
+
+1. `docker-compose exec php bash`
+2. `composer install`
+3. 「.env.example」ファイルを 「.env」ファイルに命名を変更。または、新しく.envファイルを作成
+4. .envに以下の環境変数を追加
+
+```text
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=rese_db
+DB_USERNAME=rese_user
+DB_PASSWORD=rese_pass
+```
+
+5. アプリケーションキーの作成
+
+```bash
+php artisan key:generate
+```
+
+6. マイグレーションの実行
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+## 使用技術(実行環境)
+
+- Docker / Docker Compose
+- PHP8.1.34
+- Laravel8.83.29
+- MySQL8.0.45
+- MailHog(メール認証用)
+
+## ER図
+
+![ER図](doc/er_diagram.png)
+
+## URL
+
+- 開発環境:http://localhost:8002/
+- phpMyAdmin:http://localhost:8082
+- MailHog:http://localhost:8027
+
+## メール認証（MailHog）

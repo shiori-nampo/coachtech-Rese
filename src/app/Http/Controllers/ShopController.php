@@ -8,6 +8,7 @@ use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Favorite;
 use App\Models\Reservation;
+use App\Http\Requests\ReservationRequest;
 
 class ShopController extends Controller
 {
@@ -63,7 +64,7 @@ class ShopController extends Controller
         return view('shops.detail', compact('shop'));
     }
 
-    public function store(Request $request, $shop_id)
+    public function store(ReservationRequest $request, $shop_id)
     {
         $user = auth()->user();
         $shop = Shop::findOrFail($shop_id);
