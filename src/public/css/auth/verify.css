@@ -42,6 +42,7 @@
 
 .email-content__message {
   color: red;
+  font-size: 12px;
 }
 
 @media(max-width:768px) {

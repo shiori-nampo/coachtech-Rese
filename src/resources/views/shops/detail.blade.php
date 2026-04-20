@@ -18,6 +18,30 @@
         <p class="shop-genre">#{{ $shop->genre->name }}</p>
       </div>
       <p class="shop-description">{{ $shop->shop_overview }}</p>
+      <div class="shop-prices">
+        <p class="shop-price__name">{{ $shop->price_name }}</p>
+        <p class="shop-price">{{ number_format($shop->price) }}円</p>
+      </div>
+      <p class="shop-review">レビュー</p>
+      <div class="shop-review__section">
+        @forelse ($reviews as $review)
+          <div class="review-card">
+            <div class="review-card__header">
+              <span class="review-card__stars">
+                {{ str_repeat('★', $review->stars) }}{{ str_repeat('☆', 5 - $review->stars) }}
+              </span>
+              <span class="review-card__user">{{  $review->user->name }}</span>
+              <span class="review-card__date">{{ $review->created_at->format('Y/m/d') }}</span>
+            </div>
+            <p class="review-card__comment">{{ $review->comment }}</p>
+          </div>
+        @empty
+          <p class="no-review">まだレビューがありません</p>
+        @endforelse
+        <div class="review-pagination">
+          {{ $reviews->links() }}
+        </div>
+      </div>
     </div>
     <div class="detail-content__reservation">
       <h3 class="reservation-title">予約</h3>

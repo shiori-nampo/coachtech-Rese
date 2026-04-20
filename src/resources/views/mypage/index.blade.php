@@ -9,19 +9,23 @@
 @section('content')
   <div class="mypage-content">
     <div class="mypage-content__reservation">
-      <h3 class="mypage-reservation__title">予約状況</h3>
-      @foreach ($reservations as $index => $reservation)
-        <div class="mypage-reservation__box">
+      <div class="mypage-title">
+        <h3 class="mypage-reservation__title">予約状況</h3>
+        <a class="mypage-reservation__history" href="{{ route('review.show') }}">予約履歴</a>
+      </div>
+      @foreach ($reservations as $index => $reservation) <div class="mypage-reservation__box">
           <div class="reservation-box__header">
             <div class="clock-icon"></div>
             <p class="reservation-count">予約{{ $index + 1 }}</p>
-            <button class="reservation-cancel" type="submit" form="deleteForm{{ $index }}" value="delete"><span
-                class="cancel-btn"></span></button>
+            <a class="reservation-change"
+              href="{{ route('mypage.edit', ['shop_id' => $reservation->shop->id, 'reservation_id' => $reservation->id]) }}">変更</a>
+            <button class="reservation-cancel" name="action" type="submit" form="deleteForm{{ $index }}"
+              value="delete"><span class="cancel-btn"></span></button>
           </div>
           <form class="delete-form" action="{{ route('mypage.destroy', ['reservation_id' => $reservation->id]) }}"
             method="post" id="deleteForm{{ $index }}">
-            @method('DELETE')
             @csrf
+            @method('DELETE')
             <div class="reservation-row">
               <p class="reservation-title">Shop</p>
               <p class="reservation-data">{{ $reservation->shop->name }}</p>
@@ -37,6 +41,11 @@
             <div class="reservation-row">
               <p class="reservation-title">Number</p>
               <p class="reservation-data">{{ $reservation->number }}人</p>
+            </div>
+            <div class="reservation-row">
+              <p class="reservation-title">Price</p>
+              <p class="reservation-data">{{ number_format($reservation->getTotalPrice()) }}円</p>
+              <a class="payment-btn" href="{{ route('payment.create', ['reservation_id' => $reservation->id]) }}">事前決済</a>
             </div>
           </form>
         </div>

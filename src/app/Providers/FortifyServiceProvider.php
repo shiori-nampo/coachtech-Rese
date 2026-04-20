@@ -15,6 +15,7 @@ use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
 
 
 
+
 class FortifyServiceProvider extends ServiceProvider
 {
     /**
@@ -28,11 +29,13 @@ class FortifyServiceProvider extends ServiceProvider
             MyCustomLoginRequest::class
         );
 
-        // これでレスポンスが使える（use宣言も）
+        //これでレスポンスが使える（use宣言も）
         $this->app->singleton(
             RegisterResponseContract::class,
             RegisterResponse::class
         );
+
+
     }
 
     /**
@@ -54,6 +57,10 @@ class FortifyServiceProvider extends ServiceProvider
             $email = (string) $request->email;
 
             return Limit::perMinute(10)->by($email . $request->ip());
+        });
+
+        Fortify::verifyEmailView(function () {
+            return view('auth.verify');
         });
 
     }

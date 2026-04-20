@@ -41,4 +41,10 @@ class Reservation extends Model
         return $this->hasOne(Evaluation::class);
     }
 
+
+    public function getTotalPrice()
+    {
+        return $this->shop->price * $this->number;
+    }
+
 }

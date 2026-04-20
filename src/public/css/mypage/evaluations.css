@@ -1,0 +1,130 @@
+.review-content {
+  width: 1540px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.review-shop {
+  width: 70%;
+  margin: 50px 100px;
+}
+
+.review-shop__heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-shop__table {
+  border: 1px solid #000;
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
+  border: none;
+}
+
+.review-shop__header {
+  background: #f8f9fa;
+  border-bottom: 2px solid #333;
+  padding: 12px;
+  text-align: left;
+}
+
+.review-shop__data {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.review-shop__row:nth-child(even) {
+  background: #fafafa;
+}
+
+.review-shop__form {
+  margin: 10px 100px;
+}
+.review-shop__select {
+  width: 40%;
+}
+
+.stars span {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin-top: 50px;
+}
+
+.stars input[type='radio']{
+  display: none;
+}
+
+.stars label {
+  color: #D2D2D2;
+  font-size: 40px;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.stars label:hover,
+.stars label:hover ~ label,
+.stars input[type='radio']:checked ~ label{
+  color: #FBC601;
+}
+
+.review-comment {
+  border: 1px solid #ccc;
+  width: 80%;
+  height: 100px;
+  margin-top: 20px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 4px;
+}
+
+.review-button {
+  margin: 20px 40%;
+  display: block;
+}
+
+.review-btn {
+  color: #fff;
+  background: blue;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.pagination nav {
+  display: flex;
+}
+
+.pagination svg {
+  width: 20px;
+}
+
+.select-icon::after {
+  content: "";
+  position: absolute;
+  top: 70%;
+  right: 12%;
+  transform: translateY(-50%);
+
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #ddd;
+  pointer-events: none;
+}
+
+.reservation-select select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.alert-success {
+  margin-bottom: 20px;
+  color: red;
+}

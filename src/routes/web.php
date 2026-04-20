@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\MypageController;
+use App\Http\Controllers\EvaluationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,13 @@ Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('shops.
 
 
 
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', function () {
+        Auth::logout();
+        return redirect('/login');
+    })->name('logout');
+});
+
 
 Route::middleware('auth', 'verified')->group(function () {
     Route::post('/favorite/{shop_id}', [ShopController::class, 'favorite'])->name('favorite');
@@ -46,11 +54,17 @@ Route::middleware('auth', 'verified')->group(function () {
 
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage.index');
 
-    Route::delete('/mypage/reservation/{reservation_id}', [MypageController::class, 'destroy'])->name('mypage.destroy');
+    Route::post('/mypage/reservation/{reservation_id}', [MypageController::class, 'destroy'])->name('mypage.destroy');
 
-    Route::post('/logout', function () {
-        Auth::logout();
-        return redirect('/login');
-    })->name('logout');
+    Route::get('/mypage/reservation/edit/{reservation_id}', [MypageController::class, 'edit'])->name('mypage.edit');
+
+    Route::patch('/mypage/reservation/update/{reservation_id}', [MypageController::class, 'update'])->name('mypage.update');
+
+    Route::get('/mypage/review/show', [EvaluationController::class, 'show'])->name('review.show');
+
+    Route::post('/mypage/review/store', [EvaluationController::class, 'store'])->name('review.store');
+
+
+    Route::get('/mypage/reservation/payment/{reservation_id}', [MypageController::class, 'payment'])->name('payment.create');
 });
 

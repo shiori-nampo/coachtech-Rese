@@ -9,6 +9,7 @@ use App\Models\Genre;
 use App\Models\Favorite;
 use App\Models\Reservation;
 use App\Http\Requests\ReservationRequest;
+use App\Models\Evaluation;
 
 class ShopController extends Controller
 {
@@ -61,7 +62,12 @@ class ShopController extends Controller
     {
         $shop = Shop::with('area', 'genre')->findOrFail($shop_id);
 
-        return view('shops.detail', compact('shop'));
+        $reviews = Evaluation::where('shop_id', $shop_id)
+            ->with('user')
+            ->latest()
+            ->paginate(5);
+
+        return view('shops.detail', compact('shop', 'reviews'));
     }
 
     public function store(ReservationRequest $request, $shop_id)

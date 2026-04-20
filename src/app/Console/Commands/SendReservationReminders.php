@@ -2,9 +2,11 @@
 
 namespace App\Console\Commands;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Console\Command;
 use App\Models\Reservation;
-use App\Mail\RemainderMail;
+use App\Mail\ReminderMail;
+use Carbon\Carbon;
 
 class SendReservationReminders extends Command
 {
@@ -39,10 +41,14 @@ class SendReservationReminders extends Command
      */
     public function handle()
     {
-        $reservations = Reservation::whereDate('date', now())->whereNull('reminder_sent_at')->get();
+        $reservations = Reservation::whereDate('date', Carbon::now())->whereNull('reminder_sent_at')->get();
         // 今日予約があってまだ送ってない人を連れてくる
 
+        $this->info('見つかった予約件数: ' . $reservations->count());
+
         foreach ($reservations as $reservation) {
+            $this->info($reservation->user->email . ' さんへ送信中...');
+
             Mail::to($reservation->user->email)->send(new ReminderMail($reservation));
             // 予約に紐づくユーザーのメアドを送る
 

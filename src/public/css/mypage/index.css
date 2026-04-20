@@ -14,8 +14,24 @@
   margin-top: 120px;
 }
 
+.mypage-title {
+  display: flex;
+  gap: 50px;
+}
+
 .mypage-reservation__title {
   margin-bottom: 30px;
+}
+
+.mypage-reservation__history {
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  padding: 3px 10px;
+  background: #1EC2D3;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 26px;
 }
 
 .mypage-reservation__box {
@@ -32,6 +48,17 @@
   position: relative;
   align-items:center;
   padding: 20px 20px 10px 20px;
+}
+
+.reservation-change {
+  color: #fff;
+  margin-right: 70px;
+  margin-left: auto;
+  background: #1EC2D3;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .clock-icon:before {
@@ -164,6 +191,17 @@
 
 .alert-success {
   color: red;
+}
+
+.payment-btn {
+  color: #fff;
+  background: #1EC2D3;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-right: auto;
+  margin-left: 70px;
+  padding: 3px 8px;
+  cursor: pointer;
 }
 
 @media(max-width:768px) {

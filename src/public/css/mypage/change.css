@@ -1,0 +1,145 @@
+.change-content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+.reservation-change__content {
+  background-color: #4763F1;
+  width: 50%;
+  max-width: 900px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  border-radius: 4px;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+}
+
+.change-title {
+  margin-top: 30px;
+  color: #fff;
+  margin-left: 30px;
+  margin-bottom: 22px;
+}
+
+.change-select {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.reservation-date {
+  background: #fff;
+  margin-left: 30px;
+  width: 40%;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  padding: 0px 4px;
+}
+
+.reservation-time {
+  background: #fff;
+  margin: 0 60px 20px 30px;
+  border-radius: 4px;
+  padding: 3px 4px;
+}
+
+.reservation-number {
+  background: #fff;
+  margin-left: 30px;
+  margin-right: 60px;
+  border-radius: 4px;
+  padding: 3px 4px;
+  margin-bottom: 20px;
+}
+
+
+
+.select-icon::after {
+  content: "";
+  position: absolute;
+  top: 55px;
+  right: 10%;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #ddd;
+  pointer-events: none;
+}
+
+.change-select:nth-of-type(2) .select-icon::after {
+  top: 12px;
+}
+
+.reservation-select select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+
+
+.reservation-data {
+  margin-top: 10px;
+  margin-left: 6%;
+}
+
+.reservation-button {
+  margin-top: auto;
+  background: #383AFE;
+  width: 100%;
+  border-radius: 0 0 4px 4px;
+}
+
+
+.reservation-btn {
+  color: #fff;
+  background: transparent;
+  border: none;
+  text-align: center;
+  padding: 15px 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+.error-message {
+  color: red;
+  margin-left: 30px;
+  margin-top: -20px;
+
+  height: 20px;
+  font-size: 12px;
+  display: block;
+}
+
+
+@media(max-width:768px) {
+  .reservation-change__content {
+    height: 90%;
+    min-height: 270px;
+    margin: 50px 20px;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .reservation-button {
+    margin-top: 10px;
+  }
+
+
+  .change-select {
+    width: 100%;
+  }
+
+  .select-icon::after {
+    right: 70px;
+  }
+
+
+}
