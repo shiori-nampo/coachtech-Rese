@@ -1,0 +1,213 @@
+.shop-create__content {
+  max-width: 1540px;
+  min-height: 100vh;
+}
+
+.shop-create__title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+.shop-create__inner {
+  width: 60%;
+  margin: 60px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 4px;
+}
+
+
+.shop-create__form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.shop-create__top {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.shop-create__left {
+  flex: 0 0 500px;
+}
+
+.shop-create__box {
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  border: 1px dashed #000;
+  cursor: pointer;
+}
+
+.shop-create__btn {
+  color: #F65861;
+  border: 1.5px solid #F65861;
+  border-radius: 4px;
+  padding: 5px 15px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.shop-create__right {
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.shop-create__shop {
+  font-weight: bold;
+}
+
+.shop-create__heading {
+  font-weight: bold;
+}
+
+.shop-create__right input,
+.shop-create__right select {
+  width: 100%;
+  padding: 5px;
+}
+
+.shop-create__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.shop-create__bottom textarea {
+  width: 100%;
+  height: 150px;
+}
+
+.shop-create__name {
+  border: 1px solid #8E969D;
+  width: 20%;
+  font-size: 18px;
+}
+
+.shop-create__select {
+  border: 1px solid #8E969D;
+  position: relative;
+}
+
+.select-icon::after {
+  content: "";
+  position: absolute;
+  top: 70%;
+  right: 12%;
+  transform: translateY(-50%);
+
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #ddd;
+  pointer-events: none;
+}
+
+.select-icon select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.shop-create__description{
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  margin: 20px 0 auto;
+
+}
+
+.description-label {
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+textarea {
+  border: 1px solid #8E969D;
+  width: 80%;
+  height: 80px;
+}
+
+.shop-create__menus {
+  display: flex;
+  gap: 30px;
+}
+
+.shop-create__menu {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.menu-input {
+  border: 1px solid #8E969D;
+  width: 80%;
+}
+
+.shop-create__prices {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  gap: 30px;
+}
+
+.yen-icon {
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: -24px;
+}
+
+.shop-create__price {
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+.price-input {
+  border: 1px solid #8E969D;
+  width: 30%;
+}
+
+.create-button {
+  text-align: center;
+}
+
+.create-btn {
+  color: #fff;
+  border-radius: 4px;
+  background: blue;
+  cursor: pointer;
+  padding: 3px 10px;
+}
+
+
+@media (max-width: 768px) {
+  .shop-create__inner {
+    width: 90%;
+  }
+
+  .shop-create__box {
+    width: 100%;
+  }
+
+
+  .shop-create__left {
+    flex: 0 0 300px;
+  }
+
+  .shop-create__right input,
+.shop-create__right select {
+    width: 80%;
+  }
+}

@@ -17,6 +17,7 @@ class Reservation extends Model
         'number',
         'checked_in',
         'reminder_sent_at',
+        'is_paid',
     ];
 
 

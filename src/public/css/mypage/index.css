@@ -136,13 +136,15 @@
   margin-bottom: 20px;
 }
 
+
 .shop-content__item {
-  display: flex;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 .shop-content__group {
-  flex: 1;
+  width: 100%;
   background: #fff;
   margin-right: 20px;
   border-radius: 4px;
@@ -189,8 +191,15 @@
   margin-right: 80px;
 }
 
+.paid-status {
+  margin-left: 10px;
+  font-size: 14px;
+  color: yellow;
+}
+
 .alert-success {
   color: red;
+  font-weight: bold;
 }
 
 .payment-btn {
@@ -235,10 +244,14 @@
   }
 
   .shop-content__item {
-    gap: 0;
+    gap: 10px;
+  }
+
+  .shop-content__group {
+    width: 100%;
   }
 
   .shop-content__image {
-    width: 186px;
+    width: 100%;
   }
 }

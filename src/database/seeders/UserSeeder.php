@@ -37,6 +37,7 @@ class UserSeeder extends Seeder
                 'email' => "user{$i}@example.com",
                 'password' => Hash::make('password'),
                 'role_id' => 3,
+                'email_verified_at' => now(),
             ]);
         }
 

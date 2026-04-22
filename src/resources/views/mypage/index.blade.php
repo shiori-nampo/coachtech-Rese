@@ -13,6 +13,11 @@
         <h3 class="mypage-reservation__title">予約状況</h3>
         <a class="mypage-reservation__history" href="{{ route('review.show') }}">予約履歴</a>
       </div>
+      @if (session('success'))
+        <div class="alert-success">
+          {{ session('success') }}
+        </div>
+      @endif
       @foreach ($reservations as $index => $reservation) <div class="mypage-reservation__box">
           <div class="reservation-box__header">
             <div class="clock-icon"></div>
@@ -45,16 +50,15 @@
             <div class="reservation-row">
               <p class="reservation-title">Price</p>
               <p class="reservation-data">{{ number_format($reservation->getTotalPrice()) }}円</p>
-              <a class="payment-btn" href="{{ route('payment.create', ['reservation_id' => $reservation->id]) }}">事前決済</a>
+              @if ($reservation->is_paid)
+                <span class="paid-status">決済済み</span>
+              @else
+                <a class="payment-btn" href="{{ route('payment.create', ['reservation_id' => $reservation->id]) }}">事前決済</a>
+              @endif
             </div>
           </form>
         </div>
       @endforeach
-      @if (session('success'))
-        <div class="alert-success">
-          {{ session('success') }}
-        </div>
-      @endif
     </div>
     <div class="mypage-content__favorite">
       <h2 class="mypage-user__name">{{ $user->name }}さん</h2>

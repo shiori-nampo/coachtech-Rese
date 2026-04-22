@@ -67,9 +67,13 @@ class MypageController extends Controller
 
         $reservation = Reservation::with('shop')->findOrFail($reservation_id);
 
-        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+        if ($reservation->is_paid) {
+            return back()->with('error', 'この予約はすでに決済済みです');
+        }
 
-        $session = \Stripe\Checkout\Session::create([
+        Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+
+        $session = Session::create([
             'payment_method_types' => ['card'],
             'line_items' => [
                 [
@@ -92,5 +96,19 @@ class MypageController extends Controller
 
     }
 
+    public function success($reservation_id)
+    {
+        $user = auth()->user();
 
+        $reservation = Reservation::findOrFail($reservation_id);
+
+        $reservation->update([
+            'is_paid' => true
+        ]);
+
+        return redirect()->route('mypage.index')->with('success', '事前決済が完了しました');
+    }
 }
+
+
+

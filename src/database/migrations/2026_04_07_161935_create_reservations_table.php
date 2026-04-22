@@ -22,6 +22,7 @@ class CreateReservationsTable extends Migration
             $table->integer('number');
             $table->datetime('checked_in')->nullable();
             $table->datetime('reminder_sent_at')->nullable();
+            $table->boolean('is_paid')->default(false)->nullable();
             $table->timestamps();
         });
     }
