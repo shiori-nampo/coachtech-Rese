@@ -37,3 +37,11 @@ services:
             - mysql
         ports:
             - 8082:80
+
+
+    mailhog:  
+        image: mailhog/mailhog
+        platform: linux/amd64
+        ports:
+        - "1025:1025"
+        - "8027:8025"

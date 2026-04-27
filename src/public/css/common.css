@@ -1,0 +1,64 @@
+.app {
+  max-width:1540px;
+  margin: 0 auto;
+  background: #dedede;
+  width: 100%;
+  height: 100%;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 100px;
+  padding-top: 40px;
+}
+
+.menu-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  background: blue;
+  padding: 8px;
+  border-radius: 3px;
+  box-shadow: 4px 4px 2px #ABADB4;
+}
+
+.menu-icon span {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.menu-icon .line1 {
+  width: 50%;
+}
+
+.menu-icon .line3 {
+  width: 30%;
+  margin-right: auto;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+@media(max-width:768px) {
+  .header-inner {
+    margin-left: 50px;
+  }
+}
+

@@ -1,0 +1,257 @@
+.mypage-content {
+  width: 100%;
+  min-height: calc(100vh - 70px);
+  display: flex;
+}
+
+.mypage-content__reservation,
+.mypage-content__favorite {
+  flex: 1;
+}
+
+.mypage-content__reservation {
+  margin-left: 110px;
+  margin-top: 120px;
+}
+
+.mypage-title {
+  display: flex;
+  gap: 50px;
+}
+
+.mypage-reservation__title {
+  margin-bottom: 30px;
+}
+
+.mypage-reservation__history {
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  padding: 3px 10px;
+  background: #1EC2D3;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 26px;
+}
+
+.mypage-reservation__box {
+  background: #375DFF;
+  border-radius: 4px;
+  width: 80%;
+  padding: 2px 10px 50px 10px;
+  box-shadow: 3px 3px 2px #909AA2;
+  margin-bottom: 10px;
+}
+
+.reservation-box__header {
+  display: flex;
+  position: relative;
+  align-items:center;
+  padding: 20px 20px 10px 20px;
+}
+
+.reservation-change {
+  color: #fff;
+  margin-right: 70px;
+  margin-left: auto;
+  background: #1EC2D3;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.clock-icon:before {
+  font-family: 'FontAwesome';
+  content: "\f017";
+  color: #fff;
+  font-size: 24px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.reservation-count {
+  color: #fff;
+  font-size: 15px;
+  margin-left: 50px;
+}
+
+.cancel-btn {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #375DFF;
+}
+
+.reservation-cancel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  margin: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel-btn::before, .cancel-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 10px;
+  background: #fff;
+}
+
+.cancel-btn::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cancel-btn::after {
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+.reservation-row {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.reservation-title {
+  margin-right: 20px;
+  width: 80px;
+}
+
+.mypage-user__name {
+  margin-bottom: 44px;
+  margin-top: 40px;
+}
+
+.favorite-shops {
+  margin-bottom: 20px;
+}
+
+
+.shop-content__item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.shop-content__group {
+  width: 100%;
+  background: #fff;
+  margin-right: 20px;
+  border-radius: 4px;
+  box-shadow: 3px 3px 2px #A2A9C1;
+}
+
+.shop-content__image {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+}
+
+.shop-content__title {
+  font-size: 16px;
+  margin: 5px 0 6px 20px;
+}
+
+.shop-content__comment {
+  display: flex;
+  font-size: 12px;
+  margin: 3px 0px 10px 20px;
+}
+
+.shop-content__link {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.shop-content__detail {
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  background: blue;
+  margin: 5px 0px 20px 20px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.shop-content__heart {
+  margin-right: 20px;
+}
+
+.mypage-content__favorite {
+  margin-right: 80px;
+}
+
+.paid-status {
+  margin-left: 10px;
+  font-size: 14px;
+  color: yellow;
+}
+
+.alert-success {
+  color: red;
+  font-weight: bold;
+}
+
+.payment-btn {
+  color: #fff;
+  background: #1EC2D3;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-right: auto;
+  margin-left: 70px;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+
+@media(max-width:768px) {
+  .mypage-content__reservation {
+    margin-left: 60px;
+  }
+
+  .mypage-reservation__box {
+    width: 90%;
+  }
+
+  .mypage-content__favorite {
+    margin-right: 20px;
+  }
+
+  .shop-content__group {
+    margin-top: 10px;
+  }
+
+  .shop-content__detail {
+    font-size: 10px;
+  }
+
+  .shop-heart__btn {
+    width: 20%;
+  }
+
+  .shop-heart__icon {
+    width: 30px;
+    margin-top: 3px;
+  }
+
+  .shop-content__item {
+    gap: 10px;
+  }
+
+  .shop-content__group {
+    width: 100%;
+  }
+
+  .shop-content__image {
+    width: 100%;
+  }
+}

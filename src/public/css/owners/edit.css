@@ -1,0 +1,30 @@
+.edit-content {
+  max-width: 1540px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.edit-content__inner {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.edit-content__heading {
+  margin-top: 40px;
+}
+
+.edit-content__table {
+  margin-top: 20px;
+}
+
+.edit-table {
+  border: 1px solid #8E969D;
+  width: 100%;
+}
+
+.edit-content__header {
+  margin-top: 50px;
+}
+
+
+

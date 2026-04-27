@@ -1,0 +1,140 @@
+.shop-content {
+  max-width: 1540px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  padding: 9px 10px 9px 6px;
+  margin-left: auto;
+  width: 43.5%;
+  margin-right: 96px;
+  margin-bottom: 20px;
+  max-width: 1540px;
+}
+
+.search-form__item {
+  margin-left: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.search-form__item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 100%;
+  width: 1px;
+  background-color: #eee;
+}
+
+.select-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #ddd;
+  pointer-events: none;
+}
+
+.search-form__item select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+
+.shop-content__item {
+    max-width: 1540px;
+    margin: 0 auto;
+    padding: 10px 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 0 57px;
+}
+
+.shop-content__group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 3px 3px 1px #ABADB4;
+}
+
+.shop-content__image {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  border-radius: 4px 4px 0px 0px ;
+}
+
+.shop-content__title {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #000;
+  margin-left: 20px;
+}
+
+.shop-content__comment {
+  margin-left: 20px;
+  display: flex;
+  font-size: 10px;
+}
+
+.shop-content__link {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.shop-content__detail {
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  background: blue;
+  margin: 5px 0px 20px 20px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.shop-content__heart {
+  margin-right: 20px;
+}
+
+@media(max-width:768px) {
+  .search-form {
+    margin-top: -40px;
+    margin-bottom: 50px;
+  }
+  .search-form__item{
+    width: 34%;
+  }
+
+  .shop-content__item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+
