@@ -9,7 +9,7 @@
   <div class="owners-content">
     <div class="owners-content__inner">
       <h2 class="owners-content__heading">店舗代表者一覧</h2>
-      <p class="owners-content__page"></p>
+      <div class="owners-content__page">{{ $owners->links() }}</div>
       <div class="owners-content__table">
         <table class="owners-table">
           <tr class="owners-table__row">
@@ -25,9 +25,9 @@
               <td class="owners-table__data">{{ $owner->id }}</td>
               <td class="owners-table__data">{{ $owner->name }}</td>
               <td class="owners-table__data">{{ $owner->email }}</td>
-              <td class="owners-table__data">{{ $owner->shop->name ?? '未登録' }}</td>
-              <td class="owners-table__data">{{ $owner->shop->area->name ?? '-' }}</td>
-              <td class="owners-table__data">{{ $owner->shop->genre->name ?? '-' }}</td>
+              <td class="owners-table__data">{{ $owner->shops->first()->name ?? '未登録' }}</td>
+              <td class="owners-table__data">{{ $owner->shops->first()->area->name ?? '-' }}</td>
+              <td class="owners-table__data">{{ $owner->shops->first()->genre->name ?? '-' }}</td>
             </tr>
           @endforeach
         </table>

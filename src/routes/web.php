@@ -52,7 +52,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 
     Route::get('/admin/index', [AdminController::class, 'index'])->name('admin.index');
+
+    Route::get('/admin/owner/information', [AdminController::class, 'show'])->name('admin.show');
+
+    Route::post('/admin/owner/send', [AdminController::class, 'send'])->name('admin.send');
+
 });
+
+
 
 
 

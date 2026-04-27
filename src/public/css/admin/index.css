@@ -1,0 +1,62 @@
+.owners-content {
+  max-width: 1540px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.owners-content__inner {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.owners-content__heading {
+  margin-top: 20px;
+}
+
+.owners-content__table {
+  margin-top: 30px;
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+.owners-table {
+  width: 100%;
+  border: 1px solid #8E969D;
+  border-collapse: collapse;
+}
+
+.owners-table__header {
+  background: blue;
+  color: #fff;
+}
+
+.owners-table__header,
+.owners-table__data {
+  border-bottom: 1px solid #8E969D;
+  padding: 10px;
+}
+
+.owners-table__data {
+  padding: 4px;
+  color: #8E969D;
+  line-height: 28px;
+}
+
+
+nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 5px;
+}
+
+svg {
+  width: 20px;
+  height: 20px;
+}

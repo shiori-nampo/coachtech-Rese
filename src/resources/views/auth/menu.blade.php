@@ -19,13 +19,13 @@
     </div>
     <div class="menu-wrapper__link">
       @auth
-        @if (Auth::user()->role === 1)
-          <a class="menu-link" href="">Home</a>
-          <a class="menu-link" href="">Register</a>
-          <a class="menu-link" href="">Information Mail</a>
-        @elseif(Auth::user()->role === 2)
+        @if (Auth::user()->role_id === 1)
+          <a class="menu-link" href="{{ route('admin.index') }}">Home</a>
+          <a class="menu-link" href="{{ route('admin.create') }}">Register</a>
+          <a class="menu-link" href="{{ route('admin.send') }}">Information Mail</a>
+        @elseif(Auth::user()->role_id === 2)
           <a class="menu-link" href="{{ route('owners.index') }}">Create</a>
-          <a class="menu-link" href="">Shop List / Edit</a>
+          <a class="menu-link" href="{{ route('owners.edit') }}">Shop List / Edit</a>
           <a class="menu-link" href="">Reservation Check</a>
         @else
           <a class="menu-link" href="{{ route('shops.index') }}">Home</a>

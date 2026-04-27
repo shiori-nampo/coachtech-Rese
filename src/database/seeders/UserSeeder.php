@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
                 'email' => "owner{$i}@example.com",
                 'password' => Hash::make('password'),
                 'role_id' => 2,
+                'email_verified_at' => now(),
             ]);
         }
 
@@ -29,6 +30,7 @@ class UserSeeder extends Seeder
             'email' => "admin@example.com",
             'password' => Hash::make('password'),
             'role_id' => 1,
+            'email_verified_at' => now(),
         ]);
 
         for ($i = 1; $i <= 3; $i++) {

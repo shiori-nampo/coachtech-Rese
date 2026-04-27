@@ -15,14 +15,29 @@
           <label class="owners-form__label" for="name">👤</label>
           <input class="owners-form__input" type="text" id="name" name="name" placeholder="Username">
         </div>
+        <p class="error-message">
+          @error('name')
+            {{ $message }}
+          @enderror
+        </p>
         <div class="owners-form__group">
           <label class="owners-form__label" for="email">✉️</label>
           <input class="owners-form__input" type="email" id="email" name="email" placeholder="Email">
         </div>
+        <p class="error-message">
+          @error('email')
+            {{ $message }}
+          @enderror
+        </p>
         <div class="owners-form__group">
           <label class="owners-form__label" for="password">🔒</label>
           <input class="owners-form__input" type="password" id="password" name="password" placeholder="Password">
         </div>
+        <p class="error-message">
+          @error('password')
+            {{ $message }}
+          @enderror
+        </p>
         <div class="owners-form__button">
           <button class="owners-form__btn" type="submit">登録</button>
         </div>
