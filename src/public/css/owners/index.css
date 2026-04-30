@@ -191,6 +191,11 @@ textarea {
   padding: 3px 10px;
 }
 
+.alert-success {
+  color: red;
+  font-weight: bold;
+}
+
 
 @media (max-width: 768px) {
   .shop-create__inner {

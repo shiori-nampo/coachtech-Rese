@@ -12,6 +12,8 @@ use App\Http\Requests\LoginRequest as MyCustomLoginRequest;
 use Laravel\Fortify\Http\Requests\LoginRequest as FortifyLoginRequest;
 use App\Http\Responses\RegisterResponse;
 use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
+use App\Http\Responses\LoginResponse;
+use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
 
 
 
@@ -34,6 +36,8 @@ class FortifyServiceProvider extends ServiceProvider
             RegisterResponseContract::class,
             RegisterResponse::class
         );
+
+        $this->app->singleton(LoginResponseContract::class, LoginResponse::class);
 
 
     }

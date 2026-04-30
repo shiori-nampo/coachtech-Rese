@@ -1,0 +1,49 @@
+.list-content {
+  max-width: 1540px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.list-content__inner {
+  width: 70%;
+  margin: 0 auto;
+
+}
+
+.list-content__heading {
+  margin-top: 40px;
+}
+
+.list-content__table {
+  margin-top: 20px;
+}
+
+.list-table {
+  border: 1px solid #8E969D;
+  border-radius: 4px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.list-table__header {
+  margin-top: 50px;
+  color: #fff;
+  background: blue;
+  line-height: 40px;
+  align-items: center;
+}
+
+.list-table__data {
+  text-align: center;
+  line-height: 28px;
+  background: #fff;
+}
+
+.edit-link {
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+

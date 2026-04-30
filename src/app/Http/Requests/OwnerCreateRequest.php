@@ -23,15 +23,22 @@ class OwnerCreateRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'image' => ['required', 'image', 'mimes:jpeg,png'],
             'name' => ['required', 'string', 'max:100'],
-            'area' => ['required'],
-            'genre' => ['required'],
+            'area_id' => ['required'],
+            'genre_id' => ['required'],
             'shop_overview' => ['required', 'string', 'max:150'],
             'price_name' => ['required', 'string'],
             'price' => ['required', 'numeric', 'min:0'],
         ];
+
+        if ($this->isMethod('patch') || $this->isMethod('put')) {
+            $rules['image'] = 'nullable|image|mimes:jpeg,png,jpg|max:2048';
+        } else {
+            $rules['image'] = 'required|image|mimes:jpeg,png,jpg|max:2048';
+        }
+        return $rules;
     }
 
     public function messages()
@@ -40,8 +47,8 @@ class OwnerCreateRequest extends FormRequest
             'image.required' => '画像を選択してください',
             'image.mimes' => 'アップロードできる画像は jpeg または png 形式です',
             'name.required' => '店舗名を入力してください',
-            'area.required' => 'エリアを選択してください',
-            'genre.required' => 'ジャンルを選択してください',
+            'area_id.required' => 'エリアを選択してください',
+            'genre_id.required' => 'ジャンルを選択してください',
             'shop_overview.required' => '店舗概要を入力してください',
             'price_name.required' => 'メニュー名を入力してください',
             'price.required' => '価格を入力してください',
