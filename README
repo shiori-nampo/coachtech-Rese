@@ -61,11 +61,12 @@ php artisan migrate:fresh --seed
 
 ## ER図
 
-![ER図](doc/er_diagram.png)
+![ER図](./doc/er_diagram.png)
 
 ## URL
 
 - 開発環境:http://localhost:8002/
+- 本番環境: http://54.249.197.128/
 - phpMyAdmin:http://localhost:8082
 - MailHog:http://localhost:8027
 
@@ -221,9 +222,5 @@ STRIPE_SECRET_KEY="シークレットキー"
 | updated_at        | timestamp    |             |            |          |             |
 
 
-## URL
-
-- 本番環境: http://54.249.197.128/
-- 開発環境: http://localhost:8002/
 
 ## AWS EC2/RDSを使用してデプロイ済み
