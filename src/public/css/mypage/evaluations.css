@@ -4,9 +4,15 @@
   min-height: 100vh;
 }
 
+.review-content__inner {
+  background: #fff;
+  width: 80%;
+  margin: 0 auto;
+}
+
 .review-shop {
-  width: 70%;
   margin: 50px 100px;
+  width: 100%;
 }
 
 .review-shop__heading {
@@ -22,6 +28,7 @@
   border: none;
   background: #fff;
   border-radius: 4px;
+  background: #E9E9F0;
 }
 
 .review-shop__header {

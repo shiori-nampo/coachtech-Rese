@@ -3,7 +3,7 @@
 ## 概要
 
 Rese(リーズ)は飲食店を予約できるアプリです。主な機能は会員登録、ログイン、ユーザー情報取得、お気に入り登録/解除、飲食店一覧、飲食店詳細、ユーザー飲食店予約情報取得、飲食店予約情報の追加/削除、検索（エリア、ジャンル、店名で可能）、リマインダー機能、飲食店の評価、決済機能です。<br>
-管理者はテンポ代表者を作成できる管理画面があり、<br>店舗代表者が店舗の情報の作成、更新と予約情報の確認ができる管理画面があります。
+管理者は店舗代表者を作成できる管理画面があり、<br>店舗代表者が店舗の情報の作成、更新と予約情報の確認ができる管理画面があります。
 
 ## 環境構築
 
@@ -70,3 +70,160 @@ php artisan migrate:fresh --seed
 - MailHog:http://localhost:8027
 
 ## メール認証（MailHog）
+
+.envに以下を追加してください
+
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=mailhog
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=coachtech@example.com
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+※ 認証メールは MailHog(http://localhost:8027)で確認できます。
+
+
+## ログイン情報
+## 管理者ユーザー
+email: admin@example.com
+password: password
+
+## 店舗代表者(1〜20まで)
+email: owner1@example.com
+password: password
+
+
+
+## 一般ユーザー(1〜3まで)
+email: user1@example.com
+password: password
+
+
+### Stripeについて
+
+マイページの予約状況から事前決済が可能です。<br>
+
+StripeのAPIキーは以下のように設定をお願いします。
+
+```
+STRIPE_PUBLIC_KEY="パブリックキー"
+STRIPE_SECRET_KEY="シークレットキー"
+```
+
+## 実装機能一覧
+- ユーザー登録・ログイン機能(Laravel Fortify)
+  - バリデーションはフォームリクエストで管理しています
+- メール認証機能（Mailhogを使用）
+  - - 開発環境では MailHog にて認証メールを確認できます
+- お店一覧表示・詳細表示
+  - 未ログインユーザーでも閲覧可能です
+- マイページ機能
+  - 予約の状況の確認、変更が可能です
+  - お気に入り店舗の一覧、削除が可能です
+  - 予約履歴からレビュー星とコメント（任意）を登録できます
+- 検索機能
+  - エリア、ジャンル、キーワード検索が利用可能です
+- リマインダー機能
+  - 予約当日の朝にQRコード付きのお知らせメールが届きます
+- 決済機能
+  - 任意でStripeでの事前決済が可能です
+
+
+## テーブル仕様
+
+### usersテーブル
+| カラム名           | 型           | primary key | unique key | not null | foreign key |
+| ----------------- | ------------ | ----------- | ---------- | -------- | ----------- |
+| id                |unsigned bigint| ◯           |           | ◯        |             |
+| name              | varchar(100) |             |            | ◯        |             |
+| email             | varchar(100) |             | ◯          | ◯        |             |
+| email_verified_at | timestamp    |             |            |          |             |
+| password          | varchar(100) |             |            | ◯        |             |
+| role_id         |unsignedTinyInteger|          |            | ◯        |             |
+| created_at        | timestamp    |             |            |          |             |
+| updated_at        | timestamp    |             |            |          |             |
+
+
+### areasテーブル
+| カラム名           | 型           | primary key | unique key | not null | foreign key |
+| ----------------- | ------------ | ----------- | ---------- | -------- | ----------- |
+| id                |unsigned bigint| ◯           |           | ◯        |             |
+| name              | varchar(100) |             |   ◯        | ◯        |             |
+| created_at        | timestamp    |             |            |          |             |
+| updated_at        | timestamp    |             |            |          |             |
+
+
+### genresテーブル
+| カラム名           | 型           | primary key | unique key | not null | foreign key |
+| ----------------- | ------------ | ----------- | ---------- | -------- | ----------- |
+| id                |unsigned bigint| ◯           |           | ◯        |             |
+| name              | varchar(100) |             |   ◯        | ◯        |             |
+| created_at        | timestamp    |             |            |          |             |
+| updated_at        | timestamp    |             |            |          |             |
+
+
+### shopsテーブル
+| カラム名           | 型           | primary key | unique key | not null | foreign key |
+| ----------------- | ------------ | ----------- | ---------- | -------- | ----------- |
+| id                |unsigned bigint| ◯           |           | ◯        |             |
+| user_id           |unsigned bigint|             |           | ◯        |users(id)     |
+| area_id           |unsigned bigint|             |           | ◯        |areas(id)     |
+| genre_id           |unsigned bigint|            |           | ◯         |genres(id)   |
+| name              | varchar(100) |             |            | ◯        |             |
+| shop_overview     | text         |             |            | ◯        |             |
+| image             | string       |             |            | ◯        |             |
+| price             | integer     |              |            | ◯        |             |
+| price_name         |varchar(100) |             |            | ◯        |             |
+| created_at        | timestamp    |             |            |          |             |
+| updated_at        | timestamp    |             |            |          |             |
+
+
+### favoritesテーブル
+| カラム名           | 型           | primary key | unique key | not null | foreign key |
+| ----------------- | ------------ | ----------- | ---------- | -------- | ----------- |
+| id                |unsigned bigint| ◯           |           | ◯        |             |
+| user_id           |unsigned bigint|             |           | ◯        |users(id)    |
+| shop_id           |unsigned bigint|             |           | ◯        |shops(id)    |
+| created_at        | timestamp    |             |            |          |             |
+| updated_at        | timestamp    |             |            |          |             |
+
+
+### reservationsテーブル
+| カラム名           | 型           | primary key | unique key | not null | foreign key |
+| ----------------- | ------------ | ----------- | ---------- | -------- | ----------- |
+| id                |unsigned bigint| ◯           |           | ◯        |             |
+| user_id           |unsigned bigint|             |           | ◯        |users(id)    |
+| shop_id           |unsigned bigint|             |           | ◯        |shops(id)    |
+| date              |date           |            |            | ◯        |             |
+| time              | time         |             |            | ◯        |             |
+| number            | integer      |             |            | ◯        |             |
+| checked_in        | datetime     |             |            |          |             |
+| reminder_sent_at  | datetime     |              |            |          |             |
+| is_paid           |boolean       |             |            |          |             |
+| created_at        | timestamp    |             |            |          |             |
+| updated_at        | timestamp    |             |            |          |             |
+
+
+### evaluationsテーブル
+| カラム名           | 型           | primary key | unique key | not null | foreign key |
+| ----------------- | ------------ | ----------- | ---------- | -------- | ----------- |
+| id                |unsigned bigint| ◯           |           | ◯        |             |
+| user_id           |unsigned bigint|             |           | ◯        |users(id)    |
+| shop_id           |unsigned bigint|             |           | ◯        |shops(id)    |
+| reservation_id    |unsigned bigint|            |            | ◯        |reservations(id)|
+| star              | integer      |             |            | ◯        |             |
+| content           | text         |             |            |          |             |
+| created_at        | timestamp    |             |            |          |             |
+| updated_at        | timestamp    |             |            |          |             |
+
+
+## URL
+
+- 本番環境: http://54.249.197.128/
+- 開発環境: http://localhost:8002/
+
+## AWS EC2/RDSを使用してデプロイ済み
