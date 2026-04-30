@@ -60,7 +60,7 @@ php artisan migrate:fresh --seed
 - MailHog(メール認証用)
 
 ## ER図
-[ER図はこちら](doc/er_diagram.png)
+https://github.com/shiori-nampo/coachtech-Rese/blob/main/doc/er_diagram.png
 
 
 ## URL
