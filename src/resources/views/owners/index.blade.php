@@ -31,26 +31,26 @@
             @error('name')
               <p class="error-message">{{ $message }}</p>
             @enderror
-            <label class="shop-create__heading" for="area">エリア</label>
-            <select class="shop-create__select" name="area">
-              <option value="" disabled selected>選択してください</option>
+            <label class="shop-create__heading" for="area_id">エリア</label>
+            <select class="shop-create__select" name="area_id">
+
               @foreach ($areas as $area)
                 <option value="{{ $area->id }}">{{ $area->name }}</option>
               @endforeach
               <span class="select-icon"></span>
             </select>
-            @error('area')
+            @error('area_id')
               <p class="error-message">{{ $message }}</p>
             @enderror
-            <label class="shop-create__heading" for="genre">ジャンル</label>
-            <select class="shop-create__select" name="genre">
-              <option value="" disabled selected>選択してください</option>
+            <label class="shop-create__heading" for="genre_id">ジャンル</label>
+            <select class="shop-create__select" name="genre_id">
+
               @foreach ($genres as $genre)
                 <option value="{{ $genre->id }}">{{ $genre->name }}</option>
               @endforeach
               <span class="select-icon"></span>
             </select>
-            @error('genre')
+            @error('genre_id')
               <p class="error-message">{{ $message }}</p>
             @enderror
           </div>

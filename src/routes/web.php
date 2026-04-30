@@ -70,7 +70,15 @@ Route::middleware(['auth', 'owner'])->group(function () {
 
     Route::post('/owners/store', [OwnerController::class, 'store'])->name('owners.store');
 
-    Route::get('/owners/edit', [OwnerController::class, 'edit'])->name('owners.edit');
+    Route::get('/owners/list', [OwnerController::class, 'show'])->name('owners.show');
+
+    Route::get('/owners/edit/{id}', [OwnerController::class, 'edit'])->name('owners.edit');
+
+    Route::patch('/owners/edit/{id}', [OwnerController::class, 'update'])->name('owners.update');
+
+    Route::get('/owners/reservation/confirm', [OwnerController::class, 'confirm'])->name('owners.confirm');
+
+    Route::get('/owners/reservation/search', [OwnerController::class, 'search'])->name('owners.search');
 
 });
 

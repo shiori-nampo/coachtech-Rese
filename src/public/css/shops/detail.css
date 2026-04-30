@@ -189,7 +189,7 @@
 
 
 
-@media(max-width:768px) {
+@media (max-width:768px) {
 
   .detail-content__shop {
     margin-left: 100px;
@@ -213,12 +213,14 @@
   }
 
   .select-icon::after {
-    right: 70px;
+    right: 23%;
+    transform: translateY(-220%);
+    top: 70%;
   }
 
 
   .reservation-confirm {
-    width: 66%;
+    width: 80%;
   }
   .reservation-group {
     width: 100%;
@@ -226,6 +228,12 @@
 
   .reservation-title {
     margin-left: 26px;
+    font-size: 12px;
+  }
+
+  .reservation-data {
+    font-size: 12px;
+    margin-right: auto;
   }
 }
 

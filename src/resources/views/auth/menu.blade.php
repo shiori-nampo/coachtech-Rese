@@ -22,11 +22,11 @@
         @if (Auth::user()->role_id === 1)
           <a class="menu-link" href="{{ route('admin.index') }}">Home</a>
           <a class="menu-link" href="{{ route('admin.create') }}">Register</a>
-          <a class="menu-link" href="{{ route('admin.send') }}">Information Mail</a>
+          <a class="menu-link" href="{{ route('admin.show') }}">Information Mail</a>
         @elseif(Auth::user()->role_id === 2)
           <a class="menu-link" href="{{ route('owners.index') }}">Create</a>
-          <a class="menu-link" href="{{ route('owners.edit') }}">Shop List / Edit</a>
-          <a class="menu-link" href="">Reservation Check</a>
+          <a class="menu-link" href="{{ route('owners.show') }}">Shop List / Edit</a>
+          <a class="menu-link" href="{{ route('owners.confirm') }}">Reservation Check</a>
         @else
           <a class="menu-link" href="{{ route('shops.index') }}">Home</a>
           <a class="menu-link" href="{{ route('mypage.index') }}">Mypage</a>

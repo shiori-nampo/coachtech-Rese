@@ -22,7 +22,7 @@ class ShopController extends Controller
 
         if ($request->area_id) {
             $query->where('area_id', $request->area_id);
-        }// whereはどの列かどの値かが必要
+        }
 
         if ($request->genre_id) {
             $query->where('genre_id', $request->genre_id);
@@ -75,10 +75,10 @@ class ShopController extends Controller
         $user = auth()->user();
         $shop = Shop::findOrFail($shop_id);
 
-        //ログイン中のユーザーがすでに予約いていないかチェック
         $exists = Reservation::where('user_id', auth()->id())
             ->where('shop_id', $shop_id)
-            ->exists();// 存在するかどうか真偽地で返す
+            ->where('date', $request->date)
+            ->exists();
 
         if ($exists) {
             return back()->with('error', 'この店舗はすでに予約済みです');

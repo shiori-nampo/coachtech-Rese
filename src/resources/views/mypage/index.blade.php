@@ -49,7 +49,7 @@
             </div>
             <div class="reservation-row">
               <p class="reservation-title">Price</p>
-              <p class="reservation-data">{{ number_format($reservation->getTotalPrice()) }}円</p>
+              <p class="reservation-data">{{ number_format($reservation->total_price ?? 0) }}円</p>
               @if ($reservation->is_paid)
                 <span class="paid-status">決済済み</span>
               @else

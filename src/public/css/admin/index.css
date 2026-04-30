@@ -60,3 +60,13 @@ svg {
   width: 20px;
   height: 20px;
 }
+
+@media (max-width: 768px) {
+  .owners-table__header {
+    font-size: 12px;
+  }
+
+  .owners-content__inner {
+    width: 90%;
+  }
+}
