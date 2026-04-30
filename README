@@ -60,8 +60,8 @@ php artisan migrate:fresh --seed
 - MailHog(メール認証用)
 
 ## ER図
+![ER図](doc/er_diagram.png)
 
-![ER図](./doc/er_diagram.png)
 
 ## URL
 
