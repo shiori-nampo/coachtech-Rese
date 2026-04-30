@@ -22,25 +22,27 @@
         <p class="shop-price__name">{{ $shop->price_name }}</p>
         <p class="shop-price">{{ number_format($shop->price) }}円</p>
       </div>
-      <p class="shop-review">レビュー</p>
+      <div class="reviews">
+        <p class="shop-review">レビュー</p>
+        <div class="review-pagination">
+          {{ $reviews->links() }}
+        </div>
+      </div>
       <div class="shop-review__section">
         @forelse ($reviews as $review)
           <div class="review-card">
             <div class="review-card__header">
               <span class="review-card__stars">
-                {{ str_repeat('★', $review->stars) }}{{ str_repeat('☆', 5 - $review->stars) }}
+                {{ str_repeat('★', $review->star) }}{{ str_repeat('☆', 5 - $review->star) }}
               </span>
               <span class="review-card__user">{{  $review->user->name }}</span>
               <span class="review-card__date">{{ $review->created_at->format('Y/m/d') }}</span>
             </div>
-            <p class="review-card__comment">{{ $review->comment }}</p>
+            <p class="review-card__comment">{{ $review->content }}</p>
           </div>
         @empty
           <p class="no-review">まだレビューがありません</p>
         @endforelse
-        <div class="review-pagination">
-          {{ $reviews->links() }}
-        </div>
       </div>
     </div>
     <div class="detail-content__reservation">

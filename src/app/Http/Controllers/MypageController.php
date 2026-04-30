@@ -24,10 +24,13 @@ class MypageController extends Controller
             ->where('user_id', $user->id)
             ->get();
 
+        $reservations->each(function ($reservation) {
+            $reservation->total_price = $reservation->getTotalPrice();
+        });
+
         $favorite_shops = Favorite::with('shop.area', 'shop.genre')
             ->where('user_id', $user->id)
             ->get();
-
 
         return view('mypage.index', compact('user', 'reservations', 'favorite_shops'));
     }
