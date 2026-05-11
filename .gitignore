@@ -27,7 +27,4 @@ docker/php/logs/
 # macOS 系
 .DS_Store
 
-# Composer
-/src/composer.lock
-
 *.sqlite*
