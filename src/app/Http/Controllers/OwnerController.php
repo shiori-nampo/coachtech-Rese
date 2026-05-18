@@ -28,7 +28,8 @@ class OwnerController extends Controller
         $path = null;
         if ($request->hasFile('image')) {
             $filename = time() . '_' . $request->file('image')->getClientOriginalName();
-            $path = $request->file('image')->storeAs('shops', $filename, 's3');
+            $disk = config('filesystems.default');
+            $path = $request->file('image')->storeAs('shops', $filename, $disk);
         }
 
         $shops = Shop::create([

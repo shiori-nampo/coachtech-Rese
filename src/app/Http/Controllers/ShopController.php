@@ -15,26 +15,27 @@ class ShopController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Shop::query();
+        $shops = Shop::query()
+            ->when($request->area_id, function ($query, $area_id) {
+                return $query->where('area_id', $area_id);
+            })
+            ->when($request->genre_id, function ($query, $genre_id) {
+                return $query->where('genre_id', $genre_id);
+            })
+            ->when($request->keyword, function ($query, $keyword) {
+                return $query->where('name', 'like', "%{$keyword}%");
+            })
+            ->get();
+
         $areas = Area::all();
         $genres = Genre::all();
-        $keyword = $request->keyword;
 
-        if ($request->area_id) {
-            $query->where('area_id', $request->area_id);
-        }
-
-        if ($request->genre_id) {
-            $query->where('genre_id', $request->genre_id);
-        }
-
-        if ($keyword) {
-            $query->where('name', 'like', "%{$keyword}%");
-        }
-        $shops = $query->get();
-
-
-        return view('shops.index', compact('shops', 'keyword', 'areas', 'genres'));
+        return view('shops.index', [
+            'shops' => $shops,
+            'areas' => $areas,
+            'genres' => $genres,
+            'keyword' => $request->keyword,
+        ]);
 
     }
 
