@@ -44,7 +44,7 @@
 }
 
 
-nav ul {
+.owners-content__page ul {
   list-style: none;
   display: flex;
   padding: 0;
@@ -52,7 +52,7 @@ nav ul {
   justify-content: center;
 }
 
-nav ul li {
+.owners-content__page li {
   margin: 0 5px;
 }
 

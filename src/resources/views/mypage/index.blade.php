@@ -10,7 +10,7 @@
   <div class="mypage-content">
     <div class="mypage-content__reservation">
       <div class="mypage-title">
-        <h3 class="mypage-reservation__title">予約状況</h3>
+        <h2 class="mypage-reservation__title">予約状況</h2>
         <a class="mypage-reservation__history" href="{{ route('review.show') }}">予約履歴</a>
       </div>
       @if (session('success'))

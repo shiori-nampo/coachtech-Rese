@@ -10,7 +10,7 @@
   <div class="shop-content">
     <form class="search-form" action="{{ route('shops.index') }}" method="get">
       <div class="search-form__item">
-        <select name="area_id"><!--コントローラと名前合わせる-->
+        <select name="area_id">
           <option value="" disabled selected>All area</option>
           @foreach ($areas as $area)
             <option value="{{ $area->id }}">{{ $area->name }}</option>
@@ -31,6 +31,7 @@
         <span class="search-icon">🔍</span>
         <input type="text" name="keyword" placeholder="Search..." />
       </div>
+      <button type="submit" style="display: none;"></button>
     </form>
     <div class="shop-content__item">
       @foreach ($shops as $shop)
